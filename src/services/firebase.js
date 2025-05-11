@@ -1,14 +1,9 @@
-// Import the functions you need from the SDKs you need
-import {
-    initializeApp
-} from "firebase/app";
-import {
-    getAuth
-} from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Importa las funciones necesarias de Firebase
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // Importa Firestore
 
-// Your web app's Firebase configuration (PASARLAS A UN .ENV MAS ADELANTE)
+// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyBv5ipir0BGX42WZXWZrnictMClaJ5FVao",
     authDomain: "openlab-dd1fc.firebaseapp.com",
@@ -18,7 +13,8 @@ const firebaseConfig = {
     appId: "1:888456062103:web:6f37fd8558cf9c433035d2"
 };
 
-// Initialize Firebase
+// Inicializa Firebase
 const appFirebase = initializeApp(firebaseConfig);
-export const auth = getAuth(appFirebase);
+export const auth = getAuth(appFirebase); // Autenticación
+export const db = getFirestore(appFirebase); // Firestore
 export default appFirebase;

@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      navigate("/miperfil");
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         setError("No existe una cuenta con este correo.");
@@ -33,6 +33,10 @@ const Login = () => {
         setError("Error al iniciar sesión.");
       }
     }
+  };
+
+  const handleRegisterRedirect = () => {
+    navigate("/register"); // Redirige al componente de registro
   };
 
   return (
@@ -81,11 +85,22 @@ const Login = () => {
         >
           Iniciar sesión
         </button>
+
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            ¿No tienes una cuenta?{" "}
+            <button
+              type="button"
+              onClick={handleRegisterRedirect}
+              className="text-blue-600 hover:text-blue-700"
+            >
+              Regístrate
+            </button>
+          </p>
+        </div>
       </form>
     </div>
   );
 };
 
 export default Login;
-// Este componente de inicio de sesión utiliza Firebase Authentication para autenticar a los usuarios.
-// Se utiliza el hook useState para manejar el estado del correo electrónico, la contraseña y los errores.
