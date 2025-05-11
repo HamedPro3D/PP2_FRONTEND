@@ -1,27 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Auth/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
-
-  return (
-<Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }
-        />
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
-  )
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </Router>
+    );
 }
 
-export default App
+export default App;
